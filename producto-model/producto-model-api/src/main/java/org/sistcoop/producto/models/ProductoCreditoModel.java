@@ -1,27 +1,15 @@
 package org.sistcoop.producto.models;
 
-import org.sistcoop.producto.models.enums.TipoPersona;
+import java.math.BigDecimal;
 
-public interface ProductoCreditoModel extends Model {
+public interface ProductoCreditoModel extends ProductoModel {
 
-	String getAbreviatura();
+	BigDecimal getMontoMinimo();
 
-	void setAbreviatura(String abreviatura);
+	void setMontoMinimo(BigDecimal montoMinimo);
 
-	String getDenominacion();
+	BigDecimal getMontoMaximo();
 
-	void setDenominacion(String denominacion);
-
-	int getCantidadCaracteres();
-
-	void setCantidadCaracteres(int cantidadCaracteres);
-
-	TipoPersona getTipoPersona();
-
-	void setTipoPersona(TipoPersona tipoPersona);
-
-	boolean getEstado();
-
-	void desactivar();
+	void setMontoMaximo(BigDecimal montoMaximo);
 
 }

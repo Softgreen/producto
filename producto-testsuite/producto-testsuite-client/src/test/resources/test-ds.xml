@@ -6,10 +6,10 @@
 	
 	<datasource jndi-name="java:jboss/datasources/testDS"
 		pool-name="test" enabled="true" use-java-context="true">
-		<connection-url>jdbc:postgresql://localhost:5432/test</connection-url>
-		<driver>postgresql</driver>
+		<connection-url>jdbc:mysql://localhost:3306/test</connection-url>
+		<driver>mysql</driver>
 		<security>
-			<user-name>postgres</user-name>
+			<user-name>root</user-name>
 			<password>123456</password>
 		</security>
 	</datasource>

@@ -1,30 +1,35 @@
 package org.sistcoop.producto.models.jpa;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 import javax.persistence.EntityManager;
 
-import org.sistcoop.producto.models.ProductoCreditoModel;
+import org.sistcoop.producto.models.ProductoModel;
 import org.sistcoop.producto.models.ProductoMonedaModel;
 import org.sistcoop.producto.models.ProductoTasaModel;
 import org.sistcoop.producto.models.enums.TipoPersona;
-import org.sistcoop.producto.models.jpa.entities.ProductoCreditoEntity;
+import org.sistcoop.producto.models.jpa.entities.ProductoEntity;
 
-public class ProductoCreditoAdapter implements ProductoCreditoModel {
+public class ProductoAdapter implements ProductoModel {
 
 	private static final long serialVersionUID = 1L;
 
-	protected ProductoCreditoEntity productoCreditoEntity;
+	protected ProductoEntity productoEntity;
 	protected EntityManager em;
 
-	public ProductoCreditoAdapter(EntityManager em, ProductoCreditoEntity productoCreditoEntity) {
+	public ProductoAdapter(EntityManager em, ProductoEntity productoEntity) {
 		this.em = em;
-		this.productoCreditoEntity = productoCreditoEntity;
+		this.productoEntity = productoEntity;
 	}
 
-	public ProductoCreditoEntity getProductoCreditoEntity() {
-		return productoCreditoEntity;
+	public ProductoEntity getProductoEntity() {
+		return productoEntity;
+	}
+
+	@Override
+	public void commit() {
+		// TODO Auto-generated method stub
+
 	}
 
 	@Override
@@ -95,36 +100,6 @@ public class ProductoCreditoAdapter implements ProductoCreditoModel {
 
 	@Override
 	public void setTasas(List<ProductoTasaModel> productoTasaModels) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void commit() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public BigDecimal getMontoMinimo() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void setMontoMinimo(BigDecimal montoMinimo) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public BigDecimal getMontoMaximo() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void setMontoMaximo(BigDecimal montoMaximo) {
 		// TODO Auto-generated method stub
 
 	}

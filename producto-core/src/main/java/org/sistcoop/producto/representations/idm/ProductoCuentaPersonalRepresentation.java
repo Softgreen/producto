@@ -18,10 +18,13 @@ public class ProductoCuentaPersonalRepresentation implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private Integer id;
+	private String codigo;
 	private String denominacion;
-	private String persona;
-	private Boolean estado;
-	private List<String> monedas;
+	private String tipoPersona;
+	private boolean estado;
+
+	protected List<ProductoMonedaRepresentation> monedas;
+	private List<ProductoTasaRepresentation> tasas;
 
 	@XmlAttribute
 	public Integer getId() {
@@ -30,6 +33,15 @@ public class ProductoCuentaPersonalRepresentation implements Serializable {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	@XmlAttribute
+	public String getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
 	}
 
 	@XmlAttribute
@@ -42,30 +54,39 @@ public class ProductoCuentaPersonalRepresentation implements Serializable {
 	}
 
 	@XmlAttribute
-	public String getPersona() {
-		return persona;
+	public String getTipoPersona() {
+		return tipoPersona;
 	}
 
-	public void setPersona(String persona) {
-		this.persona = persona;
+	public void setTipoPersona(String tipoPersona) {
+		this.tipoPersona = tipoPersona;
 	}
 
 	@XmlAttribute
-	public Boolean getEstado() {
+	public boolean isEstado() {
 		return estado;
 	}
 
-	public void setEstado(Boolean estado) {
+	public void setEstado(boolean estado) {
 		this.estado = estado;
 	}
 
 	@XmlAttribute
-	public List<String> getMonedas() {
+	public List<ProductoMonedaRepresentation> getMonedas() {
 		return monedas;
 	}
 
-	public void setMonedas(List<String> monedas) {
+	public void setMonedas(List<ProductoMonedaRepresentation> monedas) {
 		this.monedas = monedas;
+	}
+
+	@XmlAttribute
+	public List<ProductoTasaRepresentation> getTasas() {
+		return tasas;
+	}
+
+	public void setTasas(List<ProductoTasaRepresentation> tasas) {
+		this.tasas = tasas;
 	}
 
 }

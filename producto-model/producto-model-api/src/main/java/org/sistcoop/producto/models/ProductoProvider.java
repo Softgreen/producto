@@ -11,23 +11,38 @@ import org.sistcoop.producto.provider.Provider;
 @Local
 public interface ProductoProvider extends Provider {
 
-	ProductoCreditoModel addProducto(
+	ProductoCreditoModel addProductoCuentaPersonal(
+			String denominacion, 
+			TipoPersona tipoPersona, 
+			List<String> monedas);
+
+	ProductoCreditoModel addProductoCredito(
 			String denominacion, 
 			TipoPersona tipoPersona, 
 			List<String> monedas,
 			BigDecimal montoMinimo,
 			BigDecimal montoMaximo);
-
-	boolean desactivarProducto(ProductoCreditoModel productoCreditoModel);
+	
+	boolean desactivarProducto(ProductoModel productoModel);
 
 	ProductoCreditoModel getProductoById(Integer id);
 
-	List<ProductoCreditoModel> getProductos();
+	List<ProductoModel> getProductos();
+	
+	List<ProductoCuentaPersonalModel> getProductosCuentaPersonal();
 
-	List<ProductoCreditoModel> getProductos(TipoPersona tipoPersona);
+	List<ProductoCuentaPersonalModel> getProductosCuentaPersonal(TipoPersona tipoPersona);
 
-	List<ProductoCreditoModel> getProductos(boolean estado);
+	List<ProductoCuentaPersonalModel> getProductosCuentaPersonal(boolean estado);
 
-	List<ProductoCreditoModel> getProductos(TipoPersona tipoPersona, boolean estado);
+	List<ProductoCuentaPersonalModel> getProductosCuentaPersonal(TipoPersona tipoPersona, boolean estado);
 
+	List<ProductoCreditoModel> getProductosCredito();
+
+	List<ProductoCreditoModel> getProductosCreditoCredito(TipoPersona tipoPersona);
+
+	List<ProductoCreditoModel> getProductosCredito(boolean estado);
+
+	List<ProductoCreditoModel> getProductosCredito(TipoPersona tipoPersona, boolean estado);
+	
 }

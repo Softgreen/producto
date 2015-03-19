@@ -3,7 +3,6 @@ package org.sistcoop.producto.models.jpa.entities;
 import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -14,6 +13,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Version;
@@ -23,8 +23,6 @@ import javax.validation.constraints.Size;
 import org.hibernate.annotations.Type;
 import org.hibernate.validator.constraints.NotBlank;
 import org.sistcoop.producto.models.enums.TipoPersona;
-
-import javax.persistence.InheritanceType;
 
 @Entity
 @Table(name = "PRODUCTO")
@@ -36,14 +34,14 @@ public abstract class ProductoEntity implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private Integer id;
+	protected Integer id;
 	protected String codigo;
 	protected String denominacion;
 	protected TipoPersona tipoPersona;
 	protected boolean estado;
 
-	protected List<ProductoMoneda> monedas;
-	private Set<ProductoTasa> tasas = new HashSet<ProductoTasa>();
+	protected Set<ProductoMonedaEntity> monedas = new HashSet<ProductoMonedaEntity>();
+	private Set<ProductoTasaEntity> tasas = new HashSet<ProductoTasaEntity>();
 
 	private Timestamp optlk;
 
@@ -90,11 +88,11 @@ public abstract class ProductoEntity implements Serializable {
 	}
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	public List<ProductoMoneda> getMonedas() {
+	public Set<ProductoMonedaEntity> getMonedas() {
 		return monedas;
 	}
 
-	public void setMonedas(List<ProductoMoneda> monedas) {
+	public void setMonedas(Set<ProductoMonedaEntity> monedas) {
 		this.monedas = monedas;
 	}
 
@@ -109,11 +107,11 @@ public abstract class ProductoEntity implements Serializable {
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "producto")
-	public Set<ProductoTasa> getTasas() {
+	public Set<ProductoTasaEntity> getTasas() {
 		return tasas;
 	}
 
-	public void setTasas(Set<ProductoTasa> tasas) {
+	public void setTasas(Set<ProductoTasaEntity> tasas) {
 		this.tasas = tasas;
 	}
 

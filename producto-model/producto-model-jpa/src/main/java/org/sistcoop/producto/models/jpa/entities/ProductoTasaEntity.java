@@ -20,7 +20,7 @@ import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
 @Table(name = "PRODUCTO_TASA", indexes = { @Index(columnList = "id") })
-public class ProductoTasa {
+public class ProductoTasaEntity {
 
 	private Integer id;
 	private BigDecimal valor;

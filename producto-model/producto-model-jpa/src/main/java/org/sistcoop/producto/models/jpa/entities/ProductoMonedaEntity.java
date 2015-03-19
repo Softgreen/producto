@@ -16,7 +16,7 @@ import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
 @Table(name = "PRODUCTO_MONEDA", indexes = { @Index(columnList = "id") })
-public class ProductoMoneda {
+public class ProductoMonedaEntity {
 
 	private Integer id;
 	private String moneda;

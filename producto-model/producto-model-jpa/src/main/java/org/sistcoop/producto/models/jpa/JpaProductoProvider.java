@@ -12,6 +12,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import org.sistcoop.producto.models.ProductoCreditoModel;
+import org.sistcoop.producto.models.ProductoCuentaPersonalModel;
+import org.sistcoop.producto.models.ProductoModel;
 import org.sistcoop.producto.models.ProductoProvider;
 import org.sistcoop.producto.models.enums.TipoPersona;
 
@@ -31,13 +33,19 @@ public class JpaProductoProvider implements ProductoProvider {
 	}
 
 	@Override
-	public ProductoCreditoModel addProducto(String denominacion, TipoPersona tipoPersona, List<String> monedas, BigDecimal montoMinimo, BigDecimal montoMaximo) {
+	public ProductoCreditoModel addProductoCuentaPersonal(String denominacion, TipoPersona tipoPersona, List<String> monedas) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public boolean desactivarProducto(ProductoCreditoModel productoCreditoModel) {
+	public ProductoCreditoModel addProductoCredito(String denominacion, TipoPersona tipoPersona, List<String> monedas, BigDecimal montoMinimo, BigDecimal montoMaximo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean desactivarProducto(ProductoModel productoModel) {
 		// TODO Auto-generated method stub
 		return false;
 	}
@@ -49,25 +57,55 @@ public class JpaProductoProvider implements ProductoProvider {
 	}
 
 	@Override
-	public List<ProductoCreditoModel> getProductos() {
+	public List<ProductoModel> getProductos() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<ProductoCreditoModel> getProductos(TipoPersona tipoPersona) {
+	public List<ProductoCuentaPersonalModel> getProductosCuentaPersonal() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<ProductoCreditoModel> getProductos(boolean estado) {
+	public List<ProductoCuentaPersonalModel> getProductosCuentaPersonal(TipoPersona tipoPersona) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<ProductoCreditoModel> getProductos(TipoPersona tipoPersona, boolean estado) {
+	public List<ProductoCuentaPersonalModel> getProductosCuentaPersonal(boolean estado) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<ProductoCuentaPersonalModel> getProductosCuentaPersonal(TipoPersona tipoPersona, boolean estado) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<ProductoCreditoModel> getProductosCredito() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<ProductoCreditoModel> getProductosCreditoCredito(TipoPersona tipoPersona) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<ProductoCreditoModel> getProductosCredito(boolean estado) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<ProductoCreditoModel> getProductosCredito(TipoPersona tipoPersona, boolean estado) {
 		// TODO Auto-generated method stub
 		return null;
 	}
