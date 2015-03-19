@@ -15,6 +15,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.hibernate.annotations.Type;
+import org.hibernate.validator.constraints.NotBlank;
 import org.sistcoop.producto.models.enums.TipoPersona;
 
 @MappedSuperclass
@@ -25,6 +26,7 @@ public abstract class ProductoEntity implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 
+	protected String codigo;
 	protected String denominacion;
 	protected TipoPersona tipoPersona;
 	protected List<String> monedas;
@@ -33,6 +35,18 @@ public abstract class ProductoEntity implements Serializable {
 	private Set<ProductoTasa> tasas = new HashSet<ProductoTasa>();
 
 	@NotNull
+	@NotBlank
+	@Size(min = 1, max = 100)
+	public String getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
+	}
+
+	@NotNull
+	@NotBlank
 	@Size(min = 1, max = 100)
 	public String getDenominacion() {
 		return denominacion;

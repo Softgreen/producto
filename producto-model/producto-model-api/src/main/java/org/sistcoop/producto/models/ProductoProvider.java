@@ -26,8 +26,8 @@ public interface ProductoProvider extends Provider {
 
 	List<ProductoCreditoModel> getProductos(TipoPersona tipoPersona);
 
-	List<ProductoCreditoModel> getTiposDocumento(boolean estado);
+	List<ProductoCreditoModel> getProductos(boolean estado);
 
-	List<ProductoCreditoModel> getTiposDocumento(TipoPersona tipoPersona, boolean estado);
+	List<ProductoCreditoModel> getProductos(TipoPersona tipoPersona, boolean estado);
 
 }
