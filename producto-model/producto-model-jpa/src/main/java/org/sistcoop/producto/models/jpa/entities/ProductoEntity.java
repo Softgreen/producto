@@ -1,16 +1,22 @@
 package org.sistcoop.producto.models.jpa.entities;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Version;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -18,7 +24,11 @@ import org.hibernate.annotations.Type;
 import org.hibernate.validator.constraints.NotBlank;
 import org.sistcoop.producto.models.enums.TipoPersona;
 
-@MappedSuperclass
+import javax.persistence.InheritanceType;
+
+@Entity
+@Table(name = "PRODUCTO")
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class ProductoEntity implements Serializable {
 
 	/**
@@ -26,13 +36,26 @@ public abstract class ProductoEntity implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 
+	private Integer id;
 	protected String codigo;
 	protected String denominacion;
 	protected TipoPersona tipoPersona;
-	protected List<String> monedas;
 	protected boolean estado;
 
+	protected List<ProductoMoneda> monedas;
 	private Set<ProductoTasa> tasas = new HashSet<ProductoTasa>();
+
+	private Timestamp optlk;
+
+	@Id
+	@GeneratedValue(generator = "SgGenericGenerator")
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
 	@NotNull
 	@NotBlank
@@ -67,11 +90,11 @@ public abstract class ProductoEntity implements Serializable {
 	}
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	public List<String> getMonedas() {
+	public List<ProductoMoneda> getMonedas() {
 		return monedas;
 	}
 
-	public void setMonedas(List<String> monedas) {
+	public void setMonedas(List<ProductoMoneda> monedas) {
 		this.monedas = monedas;
 	}
 
@@ -94,4 +117,12 @@ public abstract class ProductoEntity implements Serializable {
 		this.tasas = tasas;
 	}
 
+	@Version
+	public Timestamp getOptlk() {
+		return optlk;
+	}
+
+	public void setOptlk(Timestamp optlk) {
+		this.optlk = optlk;
+	}
 }

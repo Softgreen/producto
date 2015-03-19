@@ -5,7 +5,7 @@
 	http://docs.jboss.org/ironjacamar/schema/datasources_1_0.xsd">
 	
 	<datasource jndi-name="java:jboss/datasources/testDS"
-		pool-name="personaTest" enabled="true" use-java-context="true">
+		pool-name="test" enabled="true" use-java-context="true">
 		<connection-url>jdbc:postgresql://localhost:5432/test</connection-url>
 		<driver>postgresql</driver>
 		<security>
