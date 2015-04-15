@@ -9,7 +9,7 @@ import org.sistcoop.producto.models.enums.TipoPersona;
 import org.sistcoop.producto.provider.Provider;
 
 @Local
-public interface ProductoProvider extends Provider {
+public interface ProductoCreditoProvider extends Provider {
 
 	ProductoCreditoModel addProductoCuentaPersonal(
 			String denominacion, 

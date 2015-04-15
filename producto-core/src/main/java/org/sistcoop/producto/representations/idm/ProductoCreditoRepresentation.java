@@ -25,7 +25,6 @@ public class ProductoCreditoRepresentation implements Serializable {
 	private boolean estado;
 	private String moneda;
 
-	//protected List<ProductoMonedaRepresentation> monedas;
 	private List<ProductoTasaRepresentation> tasas;
 
 	private BigDecimal montoMinimo;
@@ -111,6 +110,5 @@ public class ProductoCreditoRepresentation implements Serializable {
 	public void setMontoMaximo(BigDecimal montoMaximo) {
 		this.montoMaximo = montoMaximo;
 	}
-	
 	
 }
