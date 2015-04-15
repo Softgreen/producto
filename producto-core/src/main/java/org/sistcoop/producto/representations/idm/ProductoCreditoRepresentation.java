@@ -111,5 +111,4 @@ public class ProductoCreditoRepresentation implements Serializable {
 	public void setMontoMaximo(BigDecimal montoMaximo) {
 		this.montoMaximo = montoMaximo;
 	}
-
 }
